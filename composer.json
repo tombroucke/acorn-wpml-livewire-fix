@@ -1,0 +1,19 @@
+{
+  "name": "tombroucke/acorn-wpml-livewire-fix",
+  "description": "Prevents WPML from appending the language path to home_url() when Acorn sets the Laravel root URL, fixing broken Livewire asset and update URLs on translated pages.",
+  "type": "wordpress-muplugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tom Broucke",
+      "homepage": "https://github.com/tombroucke"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "support": {
+    "issues": "https://github.com/tombroucke/acorn-wpml-livewire-fix/issues",
+    "source": "https://github.com/tombroucke/acorn-wpml-livewire-fix"
+  }
+}
