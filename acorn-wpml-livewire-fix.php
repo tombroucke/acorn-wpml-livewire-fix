@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Acorn WPML Livewire Fix
  * Description: Prevents WPML from appending the language path to home_url() when Acorn sets the Laravel root URL, fixing broken Livewire asset and update URLs on translated pages.
- * Version: 1.0.0
+ * Version:           2.0.0
  * Author: Tom Broucke
  *
  * @see https://github.com/roots/acorn/issues/567
