@@ -11,16 +11,6 @@
 
 namespace Otomaties\WpmlLivewireFix;
 
-add_action('acorn/before_force_root_url', function () {
-    add_filter('wpml_get_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99, 2);
-    add_filter('trp_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99, 2);
-});
-
-add_action('acorn/after_force_root_url', function () {
-    remove_filter('wpml_get_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99);
-    remove_filter('trp_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99);
-});
-
 /**
  * Return the original (non-language-prefixed) URL.
  *
@@ -32,3 +22,13 @@ function returnOriginalUrl(string $homeUrl, string $url): string
 {
     return $url;
 }
+
+add_filter('acorn/root_url', function($url) {
+    add_filter('wpml_get_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99, 2);
+    add_filter('trp_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99, 2);
+    $url = home_url();
+    remove_filter('wpml_get_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99);
+    remove_filter('trp_home_url', __NAMESPACE__ . '\returnOriginalUrl', 99);
+
+    return $url;
+});
